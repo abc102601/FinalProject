@@ -2,9 +2,9 @@
 
 namespace AssemblyCSharp
 {
-	public class New
+	public class New3
 	{
-		public New ()
+		public New3 ()
 		{
 		}
 	}
