@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Image_Rotation1 : MonoBehaviour {
-
+	// Define
 	public Image ima1;
 	public Image ima2;
 	public Image ima3;
