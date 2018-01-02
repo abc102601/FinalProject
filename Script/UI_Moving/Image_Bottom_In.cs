@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Image_Bottom_In : MonoBehaviour {
+public class Image_Top_In : MonoBehaviour {
 
 	bool bbbb = true;
 	public Image image;//主圖片
@@ -19,7 +19,7 @@ public class Image_Bottom_In : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		position = image.transform.position;
-		image.transform.Translate (0, image_height * image_scale_y, 0);//移出畫面待機進入視線
+		image.transform.Translate (0, -image_height * image_scale_y, 0);//移出畫面待機進入視線
 		distance = image_height * image_scale_y;//求得並儲存距離值(無正負方向)
 		time = distance/speed;//求得時間
 		if(time < 2||time > 0)
@@ -75,7 +75,7 @@ public class Image_Bottom_In : MonoBehaviour {
 	}
 	void move ()//移動函式
 	{
-		image.transform.Translate (0, -distance / (time * frame_persecond), 0);//每秒移動20次
+		image.transform.Translate (0, distance / (time * frame_persecond), 0);//每秒移動20次
 		Debug.Log("移動");
 	}
 
