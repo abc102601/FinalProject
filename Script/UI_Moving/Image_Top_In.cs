@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Image_Bottom_In : MonoBehaviour {
+public class Image_Top_In : MonoBehaviour {
 
 	bool bbbb = true;
 	public Image image;//主圖片
@@ -17,9 +17,10 @@ public class Image_Bottom_In : MonoBehaviour {
 	float distance;//移動距離
 	float time;//移動時間間隔
 	// Use this for initialization
-	void Awake () {
+
+	void Start () {
 		position = image.transform.position;
-		image.transform.Translate (0, image_height * image_scale_y, 0);//移出畫面待機進入視線
+		image.transform.Translate (0, -image_height * image_scale_y, 0);//移出畫面待機進入視線
 		distance = image_height * image_scale_y;//求得並儲存距離值(無正負方向)
 		time = distance/speed;//求得時間
 		if(time < 2||time > 0)
@@ -31,9 +32,6 @@ public class Image_Bottom_In : MonoBehaviour {
 			Debug.Log ("建議將速度調為" + distance / 1 + "pixel/s以減少遊戲負擔");
 			bbbb = false;
 		}
-	}
-
-	void Start () {
 	}
 
 	void Update () {
@@ -65,6 +63,7 @@ public class Image_Bottom_In : MonoBehaviour {
 		{
 			CancelInvoke ("move_void");//終止呼叫
 			CancelInvoke ("move_count");//終止呼叫
+			this.GetComponent<Image_Top_In>().enabled=false;
 			Debug.Log("判斷滿足次數");
 			image.transform.position = position;//確保回歸座標
 			count = 0;
@@ -75,9 +74,10 @@ public class Image_Bottom_In : MonoBehaviour {
 	}
 	void move ()//移動函式
 	{
-		image.transform.Translate (0, -distance / (time * frame_persecond), 0);//每秒移動20次
+		image.transform.Translate (0, distance / (time * frame_persecond), 0);//每秒移動20次
 		Debug.Log("移動");
 	}
 
 
 }
+

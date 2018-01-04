@@ -17,7 +17,8 @@ public class Image_Right_In : MonoBehaviour {
 	float distance=0;//移動距離
 	float time;//移動時間間隔
 	// Use this for initialization
-	void Awake () {
+
+	void Start () {
 		position = image.transform.position;
 		image.transform.Translate (image_width * image_scale_x, 0, 0);//移出畫面待機進入視線
 		distance = image_width * image_scale_x;//求得並儲存距離值(無正負方向)
@@ -35,10 +36,8 @@ public class Image_Right_In : MonoBehaviour {
 		}
 	}
 
-	void Start () {
-	}
-
 	void Update () {
+		
 		if (bbbb == true) {
 			move_void ();
 			Debug.Log("呼叫總移動函式");
