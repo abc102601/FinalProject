@@ -63,6 +63,7 @@ public class Image_Left_In : MonoBehaviour {
 		{
 			CancelInvoke ("move_void");//終止呼叫
 			CancelInvoke ("move_count");//終止呼叫
+			this.GetComponent<Image_Left_In>().enabled=false;
 			Debug.Log("判斷滿足次數");
 			image.transform.position = position;//確保回歸座標
 			count = 0;
